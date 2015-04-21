@@ -1,0 +1,37 @@
+<%= form_for(@yadavarenamaz) do |f| %>
+  <% if @yadavarenamaz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yadavarenamaz.errors.count, "error") %> prohibited this yadavarenamaz from being saved:</h2>
+
+      <ul>
+      <% @yadavarenamaz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<! % ^^^ %>
+<%if !params[:namaz_id].blank?%>
+<%= Namaz.find_by_id(params[:namaz_id]).name%>
+<%= f.hidden_field :namaz_id, :value => params[:namaz_id]%>
+<%end%>  
+<! % ^^^ %>
+
+  <div class="field">
+    <%= f.label :saat %><br>
+    <%= f.number_field :saat %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br>
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :tozihat %><br>
+    <%= f.text_area :tozihat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

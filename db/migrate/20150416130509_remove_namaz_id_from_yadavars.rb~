@@ -1,0 +1,4 @@
+class RemoveNamazIdFromYadavars < ActiveRecord::Migration
+  def change
+  end
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mohrs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mohr code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mohrs.each do |mohr| %>
+      <tr>
+        <td><%= mohr.mohr_code %></td>
+        <td><%= link_to 'Show', mohr %></td>
+        <td><%= link_to 'Edit', edit_mohr_path(mohr) %></td>
+        <td><%= link_to 'Destroy', mohr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mohr', new_mohr_path %>

@@ -1,0 +1,2 @@
+module NamazsHelper
+end

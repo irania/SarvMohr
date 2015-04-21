@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Yadavarezekrs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Saat</th>
+      <th>Min</th>
+      <th>Tozihat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @yadavarezekrs.each do |yadavarezekr| %>
+
+      <tr>
+        <td><%= yadavarezekr.saat %></td>
+        <td><%= yadavarezekr.min %></td>
+        <td><%= yadavarezekr.tozihat %></td>
+        <td><%= link_to 'Show', yadavarezekr %></td>
+        <td><%= link_to 'Edit', edit_yadavarezekr_path(yadavarezekr) %></td>
+        <td><%= link_to 'Destroy', yadavarezekr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!*^*^>
+<%= link_to 'New Yadavarezekr', new_yadavarezekr_path(:zekr_id => params[:zekr_id]) %>

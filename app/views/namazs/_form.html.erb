@@ -1,0 +1,33 @@
+<%= form_for(@namaz) do |f| %>
+  <% if @namaz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@namaz.errors.count, "error") %> prohibited this namaz from being saved:</h2>
+
+      <ul>
+      <% @namaz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tedad_rokat %><br>
+    <%= f.number_field :tedad_rokat %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :tozihat %><br>
+    <%= f.text_area :tozihat %>
+  </div>
+  <div class="field">
+    <%= f.label :tedad %><br>
+    <%= f.number_field :tedad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

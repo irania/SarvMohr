@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Zekrs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tozihat</th>
+      <th>Tedad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zekrs.each do |zekr| %>
+      <tr>
+        <td><%= zekr.name %></td>
+        <td><%= zekr.tozihat %></td>
+        <td><%= zekr.tedad %></td>
+	
+
+	<td><%= link_to "Yadavarha", yadavarezekrs_path(:zekr_id => zekr.id) %></td>
+        <td><%= link_to 'Show', zekr %></td>
+        <td><%= link_to 'Edit', edit_zekr_path(zekr) %></td>
+        <td><%= link_to 'Destroy', zekr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+	<%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!*^*^>
+<%= link_to 'New Zekr', new_zekr_path %>

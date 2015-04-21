@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  saat: 1
+  min: 1
+  tozihat: MyText
+
+two:
+  saat: 1
+  min: 1
+  tozihat: MyText

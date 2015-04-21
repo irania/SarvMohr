@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Namazs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tedad rokat</th>
+      <th>Name</th>
+      <th>Tozihat</th>
+      <th>Tedad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @namazs.each do |namaz| %>
+	<% if namaz.user_id == current_user.id%>
+      <tr>
+        <td><%= namaz.tedad_rokat %></td>
+        <td><%= namaz.name %></td>
+        <td><%= namaz.tozihat %></td>
+        <td><%= namaz.tedad %></td>
+
+	<td><%= link_to "Yadavarha", yadavarenamazs_path(:namaz_id => namaz.id) %></td>
+        <td><%= link_to 'Show', namaz %></td>
+        <td><%= link_to 'Edit', edit_namaz_path(namaz) %></td>
+        <td><%= link_to 'Destroy', namaz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+       <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Namaz', new_namaz_path %>

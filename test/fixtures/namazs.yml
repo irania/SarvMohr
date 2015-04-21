@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tedad_rokat: 1
+  name: MyString
+  tozihat: MyText
+  tedad: 1
+
+two:
+  tedad_rokat: 1
+  name: MyString
+  tozihat: MyText
+  tedad: 1

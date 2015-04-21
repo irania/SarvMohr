@@ -1,0 +1,38 @@
+
+
+<%= form_for(@yadavarezekr) do |f| %>
+  <% if @yadavarezekr.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yadavarezekr.errors.count, "error") %> prohibited this yadavarezekr from being saved:</h2>
+
+      <ul>
+      <% @yadavarezekr.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% ^^^ %>
+<%if !params[:zekr_id].blank?%>
+<%= Zekr.find_by_id(params[:zekr_id]).name%>
+<%= f.hidden_field :zekr_id, :value => params[:zekr_id]%>
+<%end%>  
+<% ^^^ %>
+
+<div class="field">
+    <%= f.label :saat %><br>
+    <%= f.number_field :saat %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br>
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :tozihat %><br>
+    <%= f.text_area :tozihat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

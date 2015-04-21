@@ -1,0 +1,29 @@
+<%= form_for(@yadavar) do |f| %>
+  <% if @yadavar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yadavar.errors.count, "error") %> prohibited this yadavar from being saved:</h2>
+
+      <ul>
+      <% @yadavar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :saat %><br>
+    <%= f.number_field :saat %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br>
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :tozihat %><br>
+    <%= f.text_area :tozihat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

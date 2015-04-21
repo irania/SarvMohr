@@ -1,0 +1,2 @@
+module YadavarenamazsHelper
+end
