@@ -1,0 +1,45 @@
+<%= form_for(@man_board) do |f| %>
+  <% if @man_board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@man_board.errors.count, "error") %> prohibited this man_board from being saved:</h2>
+
+      <ul>
+      <% @man_board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sadaghe %><br>
+    <%= f.number_field :sadaghe %>
+  </div>
+  <div class="field">
+    <%= f.label :komak_valedein %><br>
+    <%= f.number_field :komak_valedein %>
+  </div>
+  <div class="field">
+    <%= f.label :namaze_aval_vaght %><br>
+    <%= f.number_field :namaze_aval_vaght %>
+  </div>
+  <div class="field">
+    <%= f.label :doroogh %><br>
+    <%= f.number_field :doroogh %>
+  </div>
+  <div class="field">
+    <%= f.label :gheibat %><br>
+    <%= f.number_field :gheibat %>
+  </div>
+  <div class="field">
+    <%= f.label :tohmat %><br>
+    <%= f.number_field :tohmat %>
+  </div>
+  <div class="field">
+    <%= f.label :control_khashm %><br>
+    <%= f.number_field :control_khashm %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

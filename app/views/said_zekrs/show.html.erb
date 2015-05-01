@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zekr type:</strong>
+  <%= @said_zekr.zekr_type %>
+</p>
+
+<p>
+  <strong>Num of zekrs:</strong>
+  <%= @said_zekr.num_of_zekrs %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @said_zekr.start_time %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @said_zekr.date %>
+</p>
+
+<%= link_to 'Edit', edit_said_zekr_path(@said_zekr) %> |
+<%= link_to 'Back', said_zekrs_path %>

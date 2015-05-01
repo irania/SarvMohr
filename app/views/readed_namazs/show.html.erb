@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<% 
+        if @readed_namaz.start_time.to_i !=0
+          @namaz_start_time_hour = (@readed_namaz.start_time.to_i/60 + 1)
+          @namaz_start_time_min =  (@readed_namaz.start_time.to_i%60)
+          @namaz_start_time =  "%d : %d" % [@namaz_start_time_hour,@namaz_start_time_min]        
+        else
+          @namaz_start_time = "--"
+        end
+        @namaz_date = PDate.new(1394,1,1).to_date + (@readed_namaz.date.to_i).day - 1.day
+
+        if @readed_namaz.stateus ==="قضا"
+         @cl = "danger"
+        elsif @readed_namaz.stateus ==="خوانده شده"
+          @cl = "success" 
+        elsif @readed_namaz.stateus ==="نامشخص"
+          @cl = "warning" 
+        
+end%>
+<p>
+  <strong>Date:</strong>
+  <%= @namaz_date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @namaz_start_time %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @readed_namaz.period %>
+</p>
+
+<p>
+  <strong>Stateus:</strong>
+  <%= @readed_namaz.stateus %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @readed_namaz.namaz_type %>
+</p>
+
+<%= link_to 'Edit', edit_readed_namaz_path(@readed_namaz) %> |
+<%= link_to 'Back', readed_namazs_path %>

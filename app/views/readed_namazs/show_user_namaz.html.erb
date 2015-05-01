@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>لیست نماز های خوانده شده</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>تاریخ</th>
+      <th> ساعت</th>
+      <th>مدت زمان</th>
+      <th>وضعیت</th>
+      <th>نوع</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @readed_namazs.each do |readed_namaz| %>
+    <% 
+        if readed_namaz.start_time.to_i !=0
+          @namaz_start_time_hour = (readed_namaz.start_time.to_i/60 + 1)
+          @namaz_start_time_min =  (readed_namaz.start_time.to_i%60)
+          @namaz_start_time =  "%d : %d" % [@namaz_start_time_hour,@namaz_start_time_min]        
+        else
+          @namaz_start_time = "--"
+        end
+        @namaz_date = PDate.new(1394,1,1).to_date + (readed_namaz.date.to_i).day - 1.day
+
+        if readed_namaz.stateus ==="قضا"
+         @cl = "danger"
+        elsif readed_namaz.stateus ==="خوانده شده"
+          @cl = "success" 
+        elsif readed_namaz.stateus ==="نامشخص"
+          @cl = "warning" 
+        
+    end%>
+      <tr class= <%= @cl %>>
+        <td><%= @namaz_date.to_pdate.strftime("%d / %m / %Y ") %></td>
+        <td><%= @namaz_start_time %></td>
+        <td><%= readed_namaz.period %></td>
+        <td><%= readed_namaz.stateus %></td>
+        <td><%= readed_namaz.namaz_type %></td>
+        <td><%= link_to 'Show', readed_namaz %></td>
+        <td><%= link_to 'Edit', edit_readed_namaz_path(readed_namaz) %></td>
+        <td><%= link_to 'Destroy', readed_namaz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Readed namaz', new_readed_namaz_path %>

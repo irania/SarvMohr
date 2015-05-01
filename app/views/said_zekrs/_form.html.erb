@@ -1,0 +1,33 @@
+<%= form_for(@said_zekr) do |f| %>
+  <% if @said_zekr.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@said_zekr.errors.count, "error") %> prohibited this said_zekr from being saved:</h2>
+
+      <ul>
+      <% @said_zekr.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :zekr_type %><br>
+    <%= f.text_field :zekr_type %>
+  </div>
+  <div class="field">
+    <%= f.label :num_of_zekrs %><br>
+    <%= f.number_field :num_of_zekrs %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.number_field :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.number_field :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

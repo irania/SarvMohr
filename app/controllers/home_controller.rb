@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-@time = Time.now
+		@time = Time.now
   end
+
 end

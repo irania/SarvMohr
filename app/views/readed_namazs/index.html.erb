@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Readed Namazs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>تاریخ</th>
+      <th> ساعت</th>
+      <th>مدت زمان</th>
+      <th>وضعیت</th>
+      <th>نوع</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @readed_namazs.each do |readed_namaz| %>
+      <tr>
+        <td><%= readed_namaz.date %></td>
+        <td><%= readed_namaz.start_time %></td>
+        <td><%= readed_namaz.period %></td>
+        <td><%= readed_namaz.stateus %></td>
+        <td><%= readed_namaz.namaz_type %></td>
+        <td><%= link_to 'Show', readed_namaz %></td>
+        <td><%= link_to 'Edit', edit_readed_namaz_path(readed_namaz) %></td>
+        <td><%= link_to 'Destroy', readed_namaz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Readed namaz', new_readed_namaz_path %>

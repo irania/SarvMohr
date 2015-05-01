@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416131851) do
+ActiveRecord::Schema.define(version: 20150426161554) do
+
+  create_table "man_boards", force: :cascade do |t|
+    t.integer  "sadaghe"
+    t.integer  "komak_valedein"
+    t.integer  "namaze_aval_vaght"
+    t.integer  "doroogh"
+    t.integer  "gheibat"
+    t.integer  "tohmat"
+    t.integer  "control_khashm"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+  end
 
   create_table "mohrs", force: :cascade do |t|
     t.string   "mohr_code"
@@ -43,12 +56,26 @@ ActiveRecord::Schema.define(version: 20150416131851) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
+# Could not dump table "readed_namazs" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
   create_table "ruzes", force: :cascade do |t|
     t.string   "name"
     t.text     "tozihat"
     t.integer  "tedad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "said_zekrs", force: :cascade do |t|
+    t.string   "zekr_type"
+    t.integer  "num_of_zekrs"
+    t.integer  "start_time"
+    t.integer  "date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user"
     t.integer  "user_id"
   end
 
@@ -65,6 +92,8 @@ ActiveRecord::Schema.define(version: 20150416131851) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_modified"
+    t.integer  "mohr_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

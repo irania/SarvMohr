@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>لیست ذکر های گفته شده</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>تاریخ</th>
+      <th> ساعت</th>
+      <th> تعداد</th>
+      <th>نوع</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @said_zekrs.each do |zekr| %>
+    <%
+      @zekr_time = zekr.created_at
+    %>
+      <tr class= <%= @cl %>>
+        <td><%= @zekr_time.to_date.to_pdate.strftime("%d / %m / %Y ") %></td>
+        <td><%= @zekr_time.to_time.strftime("%H : %M  ") %></td>
+        <td><%= zekr.num_of_zekrs %></td>
+        <td><%= zekr.zekr_type %></td>
+        <td><%= link_to 'Show', zekr %></td>
+        <td><%= link_to 'Edit', edit_said_zekr_path(zekr) %></td>
+        <td><%= link_to 'Destroy', zekr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Readed namaz', new_readed_namaz_path %>

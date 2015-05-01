@@ -1,0 +1,37 @@
+<%= form_for(@readed_namaz) do |f| %>
+  <% if @readed_namaz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@readed_namaz.errors.count, "error") %> prohibited this readed_namaz from being saved:</h2>
+
+      <ul>
+      <% @readed_namaz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.number_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.number_field :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.number_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :stateus %><br>
+    <%= f.text_field :stateus %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

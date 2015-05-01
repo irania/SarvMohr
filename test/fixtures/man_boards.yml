@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sadaghe: 1
+  komak_valedein: 1
+  namaze_aval_vaght: 1
+  doroogh: 1
+  gheibat: 1
+  tohmat: 1
+  control_khashm: 1
+
+two:
+  sadaghe: 1
+  komak_valedein: 1
+  namaze_aval_vaght: 1
+  doroogh: 1
+  gheibat: 1
+  tohmat: 1
+  control_khashm: 1

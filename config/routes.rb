@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :man_boards
+
+  resources :said_zekrs do
+    member do
+      get :show_user_said_zekrs
+    end
+  end
+
+  resources :readed_namazs do
+    member do
+      get :show_user_namaz
+    end
+  end
+
 	get 'yadavarezekrs/zekr_id' => 'yadavarezekrs#index', as: 'zekr_yadavarezekrs'
   resources :yadavarezekrs
 	get 'yadavarenamazs/namaz_id' => 'yadavarenamazs#index', as: 'namaz_yadavarenamazs'
@@ -17,11 +31,18 @@ Rails.application.routes.draw do
 
   resources :profiles
 
-  resources :mohrs
+  resources :mohrs do
+    member do
+      get :mohr_input
+    end
+  end
 
   devise_for :users
 
+  devise_for :readed_namazs
+
   root to: "home#index"
+
 
 
 

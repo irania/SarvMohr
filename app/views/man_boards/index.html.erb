@@ -1,0 +1,39 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Man Boards</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Sadaghe</th>
+      <th>Komak valedein</th>
+      <th>Namaze aval vaght</th>
+      <th>Doroogh</th>
+      <th>Gheibat</th>
+      <th>Tohmat</th>
+      <th>Control khashm</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @man_boards.each do |man_board| %>
+      <tr>
+        <td><%= man_board.sadaghe %></td>
+        <td><%= man_board.komak_valedein %></td>
+        <td><%= man_board.namaze_aval_vaght %></td>
+        <td><%= man_board.doroogh %></td>
+        <td><%= man_board.gheibat %></td>
+        <td><%= man_board.tohmat %></td>
+        <td><%= man_board.control_khashm %></td>
+        <td><%= link_to 'Show', man_board %></td>
+        <td><%= link_to 'Edit', edit_man_board_path(man_board) %></td>
+        <td><%= link_to 'Destroy', man_board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Man board', new_man_board_path %>

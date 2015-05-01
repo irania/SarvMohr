@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zekr_type: MyString
+  num_of_zekrs: 1
+  start_time: 1
+  date: 1
+
+two:
+  zekr_type: MyString
+  num_of_zekrs: 1
+  start_time: 1
+  date: 1

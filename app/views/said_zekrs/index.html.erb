@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Said Zekrs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Zekr type</th>
+      <th>Num of zekrs</th>
+      <th>Start time</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @said_zekrs.each do |said_zekr| %>
+      <tr>
+        <td><%= said_zekr.zekr_type %></td>
+        <td><%= said_zekr.num_of_zekrs %></td>
+        <td><%= said_zekr.start_time %></td>
+        <td><%= said_zekr.date %></td>
+        <td><%= link_to 'Show', said_zekr %></td>
+        <td><%= link_to 'Edit', edit_said_zekr_path(said_zekr) %></td>
+        <td><%= link_to 'Destroy', said_zekr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Said zekr', new_said_zekr_path %>

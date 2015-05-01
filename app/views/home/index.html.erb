@@ -1,7 +1,152 @@
 
-<h1>Home#index</h1>
+<!--<h1>Home#index</h1>
 <p>
- It is now <%= @time %>
-</p>
-<p>Find me in app/views/home/index.html.erb</p>
+<!--be name anke parvane heirane ust.. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>DASHGUM - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+<% if user_signed_in? %>
+
+      <div class="row mtbox">
+            <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                    <div class="box1">
+                         <p class="centered">
+                           <%= link_to user_namazs_path( :id => current_user.id) do %>
+                              <%= image_tag "pics/namaz.png", class: "btn btn-info btn-lg" %>
+                           <% end %>
+                         </p>
+                        <h4>گلبرگ نماز</h4>
+                    </div>
+                    <p>امام رضا (ع ) :</p>
+                    <p>(الصلوة ) صلة الله للعبد بالرحمة</p>
+                    <p>نمازعطیه و احسانی است از طرف خداوند برای بنده ، که از راه رحمت و عنایت بخشیده است .</p>
+                    <p>( بحار الانوار، ج ,84 ص 246 )</p>
+                    
+            </div>
+            <br><br><br><br>
+            <br>
+            <br>
+            <br>
+            <div class="col-md-2 col-sm-2 box0">
+                    <div class="box1">
+                         <p class="centered">
+                           <%= link_to user_zekrs_path( :id => current_user.id) do %>
+                              <%= image_tag "pics/tasbih.png", class: "btn btn-warning btn-lg" %>
+                           <% end %>
+                         </p>
+                        <h4>گلبرگ تسبیح</h4>
+                    </div>
+                    <p>امام باقر(ع):</p>
+                    <p> ذکر اللسان الحمد و الثناء و ذکر النفس الجهد و العناء و ذکر الروح الخوف و الرجاء و ذکر القلب الصدق و الصفاء و ذکر العقل التعظیم و الحیاء و ذکر المعرفه التسلیم و الرضا و ذکر السر الرؤیه و اللقاء</p>
+                    <p>ذكر زبان حمد و ثناء، ذكر نفس سختكوشى و تحمل رنج، ذكر روح بيم و اميد، ذكر دل صدق و صفا، ذكر عقل تعظيم و شرم، ذكر معرفت تسليم و رضا و ذكر باطن مشاهده و لقا است.</p>
+                    <p>مشكاة الانوار ص 55-به نقل از http://www.aviny.com/</p>
+            </div>
+             <br><br><br><br>
+            <br>
+            <br>
+            <br>
+            <div class="col-md-2 col-sm-2 box0">
+                    <div class="box1">
+                         <p class="centered">
+                           <%= link_to user_ruzes_path( :id => current_user.id) do %>
+                              <%= image_tag "pics/ruze.png", class: "btn btn-success btn-lg" %>
+                           <% end %>
+                         </p>
+                        <h4>گلبرگ روزه</h4>
+                    </div>
+                    <p>پیامبر (ص):</p>
+                    <p>لو یعلم العبد ما فى رمضان لود ان یكون رمضان السنة</p>
+                    <p>اگر بنده (خدا) مى‏دانست كه در ماه رمضان چیست [چه بركتى وجود دارد] دوست مى‏داشت كه تمام سال، رمضان باشد. </p>
+                    <p>(بحار الانوار، ج 93، ص 346 )</p>
+            </div>
+                          
+       </div><!-- /row mt -->
+
+<% else %>
+	          
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+
+	  <div id="login-page">
+	  	<div class="container">
+	  		
+	  		  
+		      <form class="form-login" action="index.html">
+		      	<p class="centered"><a href="profile.html"><img src="/assets/login/icon.png" class="img-circle" width="60"></a></p>
+			                  <!--<h5 class="centered">سرو مهر</h5>-->
+		        <h2 class="form-login-heading">به سرو مهر خوش آمدید.</h2>
+		        <div class="login-wrap">
+		            
+		            <%= link_to "ورود", new_user_session_path , :class=>"btn btn-theme btn-block" %>
+		          
+		            <hr>
+		            
+		            <div class="registration">
+		                ثبت نام نکرده اید؟<br/>
+		                <%= link_to "ثبت نام", new_user_registration_path , :class=>"btn btn-round btn-warning" %>
+		            </div>
+		
+		        </div>
+		
+
+		
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+    </script>
+
+
+
+
+<% end %>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
 
