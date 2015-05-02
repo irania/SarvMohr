@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Readed Namazs</h1>
+<h1>لیست نماز های خوانده شده</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>تاریخ</th>
@@ -16,15 +16,38 @@
 
   <tbody>
     <% @readed_namazs.each do |readed_namaz| %>
-      <tr>
-        <td><%= readed_namaz.date %></td>
-        <td><%= readed_namaz.start_time %></td>
+    <% 
+        if readed_namaz.start_time.to_i !=0
+          @namaz_start_time_hour = (readed_namaz.start_time.to_i/60 + 1)
+          @namaz_start_time_min =  (readed_namaz.start_time.to_i%60)
+          @namaz_start_time =  "%d : %d" % [@namaz_start_time_hour,@namaz_start_time_min]        
+        else
+          @namaz_start_time = "--"
+        end
+        @namaz_date = PDate.new(1394,1,1).to_date + (readed_namaz.date.to_i).day - 1.day
+
+        if readed_namaz.stateus ==="قضا"
+         @cl = "danger"
+        elsif readed_namaz.stateus ==="خوانده شده"
+          @cl = "success" 
+        elsif readed_namaz.stateus ==="نامشخص"
+          @cl = "warning" 
+        
+    end%>
+      <tr class= <%= @cl %>>
+        <td><%= @namaz_date.to_pdate.strftime("%d / %m / %Y ") %></td>
+        <td><%= @namaz_start_time %></td>
         <td><%= readed_namaz.period %></td>
         <td><%= readed_namaz.stateus %></td>
         <td><%= readed_namaz.namaz_type %></td>
-        <td><%= link_to 'Show', readed_namaz %></td>
-        <td><%= link_to 'Edit', edit_readed_namaz_path(readed_namaz) %></td>
-        <td><%= link_to 'Destroy', readed_namaz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+                                          
+                                         
+            <%= link_to 'حذف', readed_namaz, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"label label-warning label-mini" %>
+            <%= link_to 'تصحیح', edit_readed_namaz_path(readed_namaz) , :class=>"label label-info label-mini" %>
+            <%= link_to 'نمایش', readed_namaz , :class=>"label label-success label-mini" %>
+
+        </td>
       </tr>
     <% end %>
   </tbody>

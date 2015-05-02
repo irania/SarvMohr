@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :man_boards
+  get 'said_zekrs/user' => 'said_zekrs#index', as: 'user_said_zekrs'
+  get 'readed_namazs/user' => 'readed_namazs#index', as: 'user_readed_namazs'
+
 
   resources :said_zekrs do
     member do

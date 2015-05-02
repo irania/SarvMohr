@@ -1,33 +1,56 @@
-<p id="notice"><%= notice %></p>
+<!be name anke parvane heirane ust..>
 
-<h1>Listing Said Zekrs</h1>
+              <div class="row mt">
+                  <div class="col-md-12">
+                      <div class="content-panel">
+                          <table class="table table-striped table-advance table-hover">
+                            <h4 ><i class="fa fa-angle-right"></i> > ذکرهای گفته شده </h4>
+                            <hr>
+                              <thead>
+                              <tr>
+                                  <th><i class="fa fa-bullhorn"></i> نام</th>
+                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> تعداد</th>
+                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> تاریخ</th>
+                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> ساعت</th>
+                                  <!--th class="hidden-phone"><i class="fa fa-question-circle"></i> تاریخ </th--> 
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <% @said_zekrs.each do |zekr| %>
+                                      <%
+                                        @zekr_time = zekr.created_at
+                                     %>
+                                  <tr>
+                                      <td><%= link_to zekr.zekr_type, zekr ,{:style=>'color:#5bc0de;'} %></td>
+                                      <td class="hidden-phone"><%= zekr.num_of_zekrs %></td>
+                                      <td><span class="label label-info label-mini"><%= @zekr_time.to_date.to_pdate.strftime("%d / %m / %Y ") %></span></td>
+                                       <td><span class="label label-info label-mini"><%= @zekr_time.to_time.strftime("%H : %M  ")  %></span></td>
+                                      <!--td><span class="label label-info label-mini"><!%= said_zekr.date %></span></td>
+                                      <<td class="hidden-phone"> <!%= said_zekr.start_time %></td>
+                                      <td class="hidden-phone"> <!%= said_zekr.start_time %></td>
+                                      <td><span class="label label-info label-mini">Due</span></td>-->
+                                      <td>
+                                          
+                                         
+                                          <%= link_to 'دور ریز', zekr, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"label label-warning label-mini" %>
+                                           <%= link_to 'تصحیح', edit_said_zekr_path(zekr) , :class=>"label label-info label-mini" %>
+                                           <%= link_to 'نمایش', zekr , :class=>"label label-success label-mini" %>
+                                          <!--<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                          <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                          <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>-->
+                                      </td>
+                                  </tr>
+                             
+                            
+                           
+                                  
+                                <% end %>
+                              </tbody>
+                          </table>
+                          <%= link_to 'ذکر گفته شده جدید', new_said_zekr_path  , :class=>"btn btn-round btn-info" %>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Zekr type</th>
-      <th>Num of zekrs</th>
-      <th>Start time</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @said_zekrs.each do |said_zekr| %>
-      <tr>
-        <td><%= said_zekr.zekr_type %></td>
-        <td><%= said_zekr.num_of_zekrs %></td>
-        <td><%= said_zekr.start_time %></td>
-        <td><%= said_zekr.date %></td>
-        <td><%= link_to 'Show', said_zekr %></td>
-        <td><%= link_to 'Edit', edit_said_zekr_path(said_zekr) %></td>
-        <td><%= link_to 'Destroy', said_zekr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Said zekr', new_said_zekr_path %>

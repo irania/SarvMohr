@@ -105,7 +105,7 @@ class MohrsController < ApplicationController
       @user = find_user
       return @user.last_modified
     end
-
+    #BUG Dare!
     def get_owghat_range 
       if @start_time<420 and @start_time>300
         return 1
@@ -113,6 +113,8 @@ class MohrsController < ApplicationController
           return 2
         elsif @start_time>1200 and @start_time<1440 
           return 3
+        else 
+          return -1
       end
     end
 

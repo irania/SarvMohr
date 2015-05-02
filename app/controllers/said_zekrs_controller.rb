@@ -4,7 +4,8 @@ class SaidZekrsController < ApplicationController
   # GET /said_zekrs
   # GET /said_zekrs.json
   def index
-    @said_zekrs = SaidZekr.all
+    @user = current_user
+    @said_zekrs = SaidZekr.where(user_id: @user)
   end
 
   # GET /said_zekrs/1

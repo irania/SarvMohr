@@ -21,7 +21,7 @@
 				      	<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
 				     </div>
 				     <!--logo start-->
-				     <a href="index.html" class="logo"><b>مهر هوشمند</b></a>
+				     <a href="index.html" class="logo"><b>مهر سرو</b></a>
 				     <!--logo end-->
 				            
 				     <div class="top-menu">
@@ -33,7 +33,7 @@
 						     	<%= link_to "پروفايل", profile_path(:id => current_user.id) , :class=>"logout"%>
 						     </li>
 						     <li>
-						     	<%= link_to "برون رفت", destroy_user_session_path, :method => :delete , :class=> "btn btn-success" , :class=>"logout"%> 
+						     	<%= link_to "برون رفت", destroy_user_session_path, :method => :delete  , :class=>"logout"%> 
 						     </li>
 						    
 					     </ul>
@@ -49,8 +49,8 @@
 			              <!-- sidebar menu start-->
 			              <ul class="sidebar-menu" id="nav-accordion">
 			              
-			                  <p class="centered"><a href="profile.html"><img src="/assets/login/icon.png" class="img-circle" width="60"></a></p>
-			                  <h5 class="centered">مهر سرو</h5>
+			                  <p class="centered"><a href="profile.html"><img src="/assets/login/icon.png" class="img-circle" width="200"></a></p>
+			                  
 			                    
 			                  <!--<li class="mt">
 			                      <a class="active">
@@ -69,9 +69,9 @@
 			                          <span>نماز ها</span>
 			                      </a>
 				                  <ul class="sub">
-				                      <li><%= link_to "همه نمازها", user_namazs_path( :id => current_user.id) %>
-				                      <li><a  href="#">قضا ها</a></li>
-				                      <li><a  href="#">نمودار اول وقت </a></li>
+				                      <li><%= link_to "...همه نمازها	", user_readed_namazs_path%>
+				                      <li><a  href="#">...قضا ها</a></li>
+				                      <li><a  href="#">...نمودار اول وقت </a></li>
 				                  </ul>
 				                  
 			                  </li>
@@ -83,7 +83,7 @@
 			                      </a>
 			                      <ul class="sub">
 			                          <li><%= link_to "همه اذکار", user_zekrs_path( :id => current_user.id) %></li>
-			                          <li><a  href="#">نذری ها</a></li>
+			                          <li><%= link_to "ذکر های گفته شده", user_said_zekrs_path %></li>
 			                        
 			                      </ul>
 			                  </li>

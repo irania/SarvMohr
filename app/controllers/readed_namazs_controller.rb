@@ -4,7 +4,10 @@ class ReadedNamazsController < ApplicationController
   # GET /readed_namazs
   # GET /readed_namazs.json
   def index
-    @readed_namazs = ReadedNamaz.all
+    #@readed_namazs = ReadedNamaz.all
+    @user = current_user
+    update_user_namazs
+    @readed_namazs = ReadedNamaz.where(user_id: @user)
   end
 
   # GET /readed_namazs/1
@@ -85,6 +88,9 @@ class ReadedNamazsController < ApplicationController
     def update_user_namazs
       @last_namaz = get_last_namaz
       @now_namaz = get_num_of_namaz
+      if @last_namaz ==nil 
+        @last_namaz = @now_namaz-2
+      end
       for i in (@last_namaz+1)..(@now_namaz-1)
         i_namaz_type = get_namaz_type i
         i_namaz_date = get_namaz_date i
@@ -137,6 +143,7 @@ class ReadedNamazsController < ApplicationController
       return i/5
     end
 
+    #age beine in owghat nabood chi?
      def get_owghat_range
      @now = (Time.now.hour-1) *60 + Time.now.min 
       if @now <420 and @now>300
@@ -145,6 +152,8 @@ class ReadedNamazsController < ApplicationController
           return 2
         elsif @now>1200 and @now<1440 
           return 4
+        else 
+          return -1
       end
     end
 
